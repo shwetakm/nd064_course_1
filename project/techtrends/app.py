@@ -1,4 +1,5 @@
 import sqlite3
+import logging
 
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
@@ -36,13 +37,43 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
+      # Logging a CUSTOM message
+      app.logger.info('Article 404 is retrived')
       return render_template('404.html'), 404
     else:
+      # Logging a CUSTOM message
+      app.logger.info(post['title'])
       return render_template('post.html', post=post)
+
+# Define about health status of the system
+@app.route('/healthz')
+def healthz():
+    response = app.response_class(
+            response=json.dumps({"result":"OK - healthy"}),
+            status=200,
+            mimetype='application/json'
+    )
+    return response
+
+# Define about metrics of the system
+@app.route('/metrics')
+def metrics():
+     connection = get_db_connection()
+     posts_count = connection.execute('SELECT * FROM posts').fetchall()
+     db_connection_count = connection.execute('SELECT * FROM sqlite_master').fetchall()
+     connection.close()
+     response = app.response_class(
+            response=json.dumps({"db_connection_count":len(db_connection_count),"post_count":len(posts_count)}),
+            status=200,
+            mimetype='application/json'
+     )
+     return response
 
 # Define the About Us page
 @app.route('/about')
 def about():
+    # Logging a CUSTOM message
+    app.logger.info('About Us page is retriaved.')
     return render_template('about.html')
 
 # Define the post creation functionality 
@@ -60,11 +91,11 @@ def create():
                          (title, content))
             connection.commit()
             connection.close()
-
+            # Logging a CUSTOM message
+            app.logger.info('index page')
             return redirect(url_for('index'))
-
     return render_template('create.html')
 
 # start the application on port 3111
 if __name__ == "__main__":
-   app.run(host='0.0.0.0', port='3111')
+   app.run(debug=True, host='0.0.0.0', port='3111')
