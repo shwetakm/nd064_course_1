@@ -1,0 +1,14 @@
+2023-07-04 18:57:30,505 WARNING werkzeug MainThread :  * Debugger is active!
+2023-07-04 18:57:30,505 INFO werkzeug MainThread :  * Debugger PIN: 882-941-036
+2023-07-04 18:57:30,538 WARNING werkzeug Thread-1 (inner) :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2023-07-04 18:57:30,538 INFO werkzeug Thread-1 (inner) :  * Running on http://192.168.1.89:3111/ (Press CTRL+C to quit)
+2023-07-04 18:57:38,514 INFO werkzeug MainThread :  * Restarting with stat
+2023-07-04 18:57:38,710 WARNING werkzeug MainThread :  * Debugger is active!
+2023-07-04 18:57:38,714 INFO werkzeug MainThread :  * Debugger PIN: 882-941-036
+2023-07-04 18:57:38,735 WARNING werkzeug Thread-1 (inner) :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2023-07-04 18:57:38,739 INFO werkzeug Thread-1 (inner) :  * Running on http://192.168.1.89:3111/ (Press CTRL+C to quit)
+2023-07-04 18:58:54,652 INFO werkzeug MainThread :  * Detected change in 'C:\\Users\\Shweta Kadam\\OneDrive\\Documents\\GitHub\\nd064_course_1\\project\\techtrends\\app.py', reloading
+2023-07-04 18:58:54,681 INFO werkzeug MainThread :  * Restarting with stat
+2023-07-04 18:59:19,713 INFO werkzeug MainThread :  * Restarting with stat

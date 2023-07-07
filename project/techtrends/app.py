@@ -37,12 +37,12 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
-      # Logging a CUSTOM message
-      app.logger.info('Article 404 is retrived')
+      # 404 Article not found log
+      app.logger.info('Article with id %s not found.',post_id)
       return render_template('404.html'), 404
     else:
-      # Logging a CUSTOM message
-      app.logger.info(post['title'])
+      # Article access log
+      app.logger.info("Article %s is retrieved.",post['title'])
       return render_template('post.html', post=post)
 
 # Define about health status of the system
@@ -60,6 +60,7 @@ def healthz():
 def metrics():
      connection = get_db_connection()
      posts_count = connection.execute('SELECT * FROM posts').fetchall()
+     # table contains active connections
      db_connection_count = connection.execute('SELECT * FROM sqlite_master').fetchall()
      connection.close()
      response = app.response_class(
@@ -72,8 +73,8 @@ def metrics():
 # Define the About Us page
 @app.route('/about')
 def about():
-    # Logging a CUSTOM message
-    app.logger.info('About Us page is retriaved.')
+    # Aboud us page access log
+    app.logger.info('About Us page is retrieved.')
     return render_template('about.html')
 
 # Define the post creation functionality 
@@ -91,11 +92,12 @@ def create():
                          (title, content))
             connection.commit()
             connection.close()
-            # Logging a CUSTOM message
-            app.logger.info('index page')
+            # New article create log
+            app.logger.info("Article %s has been created.", title)
             return redirect(url_for('index'))
     return render_template('create.html')
 
 # start the application on port 3111
 if __name__ == "__main__":
+   logging.basicConfig(format='%(levelname)s:%(name)s:%(asctime)s, %(message)s', datefmt='%m/%d/%Y, %H:%M:%S',level=logging.DEBUG)
    app.run(debug=True, host='0.0.0.0', port='3111')
