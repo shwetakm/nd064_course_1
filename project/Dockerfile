@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.8-slim-buster
 
 LABEL maintainer="Shweta K"
 
@@ -10,6 +10,6 @@ RUN pip install -r requirements.txt
 
 RUN python init_db.py
 
-CMD [ "python", "app.py" ]
-
 EXPOSE 3111
+
+CMD [ "python", "app.py" ]
