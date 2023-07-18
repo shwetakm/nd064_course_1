@@ -25,7 +25,7 @@ spec:
         imagePullPolicy: IfNotPresent
         name: techtrends
         ports:
-          - containerPort: 8080
+          - containerPort: 3111
         livenessProbe:
           httpGet:
             path: /healthz
