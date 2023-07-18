@@ -1,0 +1,33 @@
+docker build -t techtrends .
+docker run -d -p 7111:3111 techtrends
+docker tag techtrends skadam/techtrends:v1.0.0
+docker ps
+docker logs ac9065084253
+
+ * Serving Flask app 'app' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+WARNING:werkzeug:07/10/2023, 05:56:41,  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug:07/10/2023, 05:56:41,  * Running on http://172.17.0.3:3111/ (Press CTRL+C to quit)
+INFO:werkzeug:07/10/2023, 05:56:41,  * Restarting with stat
+WARNING:werkzeug:07/10/2023, 05:56:41,  * Debugger is active!
+INFO:werkzeug:07/10/2023, 05:56:41,  * Debugger PIN: 132-604-381
+INFO:werkzeug:07/10/2023, 05:57:17, 172.17.0.1 - - [10/Jul/2023 05:57:17] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:07/10/2023, 05:57:17, 172.17.0.1 - - [10/Jul/2023 05:57:17] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:werkzeug:07/10/2023, 05:57:17, 172.17.0.1 - - [10/Jul/2023 05:57:17] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:app:07/10/2023, 05:59:37, About Us page is retrieved.
+INFO:werkzeug:07/10/2023, 05:59:37, 172.17.0.1 - - [10/Jul/2023 05:59:37] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:07/10/2023, 05:59:37, 172.17.0.1 - - [10/Jul/2023 05:59:37] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:07/10/2023, 06:00:09, 172.17.0.1 - - [10/Jul/2023 06:00:09] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:07/10/2023, 06:00:09, 172.17.0.1 - - [10/Jul/2023 06:00:09] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:07/10/2023, 06:00:11, Article KubeCon + CloudNativeCon 2021 is retrieved.
+INFO:werkzeug:07/10/2023, 06:00:11, 172.17.0.1 - - [10/Jul/2023 06:00:11] "GET /2 HTTP/1.1" 200 -
+INFO:werkzeug:07/10/2023, 06:00:11, 172.17.0.1 - - [10/Jul/2023 06:00:11] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:07/10/2023, 06:04:58, 172.17.0.1 - - [10/Jul/2023 06:04:58] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:07/10/2023, 06:04:58, 172.17.0.1 - - [10/Jul/2023 06:04:58] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:07/10/2023, 06:05:00, Article CNCF Cloud Native Interactive Landscape is retrieved.
+INFO:werkzeug:07/10/2023, 06:05:00, 172.17.0.1 - - [10/Jul/2023 06:05:00] "GET /4 HTTP/1.1" 200 -
+INFO:werkzeug:07/10/2023, 06:05:00, 172.17.0.1 - - [10/Jul/2023 06:05:00] "GET /static/css/main.css HTTP/1.1" 304 -
